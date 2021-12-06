@@ -9,18 +9,18 @@ import (
 
 const (
 	// Previous ioctls, no longer used.
-	//	ctlSetStatus    = 0x4C01
-	//	ctlGetStatus    = 0x4C01
+	//	ctlSetStatus    = 0x4C02
+	//	ctlGetStatus    = 0x4C03
 
 	ctlSetFD        = 0x4C00
 	ctlClrFD        = 0x4C01
-	ctlSetStatus64  = 0x4C01
-	ctlGetStatus64  = 0x4C01
-	ctlChangeFD     = 0x4C01
-	ctlSetCapacity  = 0x4C01
-	ctlSetDirectIO  = 0x4C01
-	ctlSetBlockSize = 0x4C01
-	ctlConfigure    = 0x4C01
+	ctlSetStatus64  = 0x4C04
+	ctlGetStatus64  = 0x4C05
+	ctlChangeFD     = 0x4C06
+	ctlSetCapacity  = 0x4C07
+	ctlSetDirectIO  = 0x4C08
+	ctlSetBlockSize = 0x4C09
+	ctlConfigure    = 0x4C0A
 )
 
 const (

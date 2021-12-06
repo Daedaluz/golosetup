@@ -16,6 +16,10 @@ func NewDevice(slot int64) *Device {
 	return &Device{slot: slot}
 }
 
+func (d *Device) Path() string {
+	return fmt.Sprintf("/dev/loop%d", d.slot)
+}
+
 func (d *Device) GetSlot() int64 {
 	return d.slot
 }

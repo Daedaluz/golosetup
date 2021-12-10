@@ -116,7 +116,9 @@ func Attach(file string, offset uint64, flags loopctl.LoopFlag) (*Device, error)
 	if err := dev.Open((flags & loopctl.ReadOnly) > 0); err != nil {
 		return nil, err
 	}
-	defer dev.Close()
+	if (flags & loopctl.AutoClear) == 0 {
+		defer dev.Close()
+	}
 	err = dev.Attach(file, offset, flags)
 	if err != nil {
 		return nil, err

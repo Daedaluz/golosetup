@@ -1,5 +1,7 @@
 package loopctl
 
+import "strings"
+
 type LoopFlag uint32
 
 const (
@@ -16,6 +18,23 @@ const (
 	// Use direct I/O mode to access the backing file.
 	DirectIO = LoopFlag(16)
 )
+
+func (f LoopFlag) String() string {
+	var flags []string
+	if (f & ReadOnly) > 0 {
+		flags = append(flags, "ReadOnly")
+	}
+	if (f & AutoClear) > 0 {
+		flags = append(flags, "AutoClear")
+	}
+	if (f & PartScan) > 0 {
+		flags = append(flags, "PartScan")
+	}
+	if (f & DirectIO) > 0 {
+		flags = append(flags, "DirectIO")
+	}
+	return strings.Join(flags, "|")
+}
 
 type EncryptionType uint32
 

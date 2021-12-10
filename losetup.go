@@ -50,6 +50,10 @@ func (d *Device) SetInfo(info *loopctl.Info) error {
 	return loopctl.SetStatus(d.f, info)
 }
 
+func (d *Device) UpdateSize() error {
+	return loopctl.SetCapacity(d.f)
+}
+
 func (d *Device) Detach() error {
 	return loopctl.ClrFd(d.f)
 }
